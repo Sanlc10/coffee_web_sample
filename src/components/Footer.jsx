@@ -2,17 +2,23 @@ import { useState } from 'react';
 import { FaCoffee, FaInstagram, FaFacebook, FaPinterest } from 'react-icons/fa';
 
 /**
- * Footer component with newsletter signup, social links, and legal information
+ * Footer component with WhatsApp contact form, social links, and legal information
  */
 const Footer = () => {
-  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    // For now, just log the email (can be connected to a backend later)
-    console.log('Newsletter signup:', email);
-    alert(`Thank you for subscribing with: ${email}`);
-    setEmail('');
+  const handleWhatsAppRedirect = () => {
+    if (!message.trim()) {
+      alert('Please enter a message before sending.');
+      return;
+    }
+
+    const phoneNumber = '5212213419629'; // Formato internacional sin + ni espacios
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+    setMessage(''); // Limpiar el campo después de enviar
   };
 
   const socialLinks = [
@@ -43,27 +49,26 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Newsletter Signup */}
+          {/* WhatsApp Contact Form */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-cream">
-              Join our newsletter to receive exclusive updates, and news!
+              Get in touch with us! Send us a message and we'll get back to you right away.
             </h3>
-            <form onSubmit={handleNewsletterSubmit} className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                className="flex-1 px-4 py-3 rounded-lg bg-cream/10 border border-cream/30 text-cream placeholder-cream/50 focus:outline-none focus:border-gold"
+            <div className="flex gap-2">
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Message"
+                rows="2"
+                className="flex-1 px-4 py-3 rounded-lg bg-cream/10 border border-cream/30 text-cream placeholder-cream/50 focus:outline-none focus:border-gold resize-none"
               />
               <button
-                type="submit"
+                onClick={handleWhatsAppRedirect}
                 className="px-6 py-3 bg-gold text-dark font-semibold rounded-lg hover:bg-gold/90 transition-colors duration-300"
               >
-                Subscribe
+                Send Message
               </button>
-            </form>
+            </div>
           </div>
         </div>
 
