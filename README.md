@@ -8,16 +8,17 @@ A modern, responsive single-page website for Brussels Brewery, a cozy coffee sho
 - **Sticky Navigation**: Smart navbar that stays fixed while scrolling
 - **Smooth Scrolling**: Seamless navigation between sections
 - **Mobile Menu**: Hamburger menu for mobile devices
-- **Newsletter Signup**: Functional email subscription form
+- **WhatsApp Contact**: Direct messaging via WhatsApp with pre-filled message
+- **Location Finder**: Quick access to Google Maps for all locations
 - **Social Media Integration**: Links to Instagram, Facebook, and Pinterest
 - **Image Gallery**: Curated photos from Unsplash
 - **Multiple Sections**:
-  - Hero section with call-to-action
+  - Hero section with location finder CTA
   - Handmade Just For You
   - Made In Brussels story
   - Social media showcase
   - Location information
-  - Footer with newsletter
+  - Footer with WhatsApp contact form
 
 ## Tech Stack
 
@@ -35,7 +36,7 @@ coffee_web_sample/
 │   ├── components/          # Reusable components
 │   │   ├── Navbar.jsx       # Navigation bar with mobile menu
 │   │   ├── Button.jsx       # Reusable button component
-│   │   └── Footer.jsx       # Footer with newsletter
+│   │   └── Footer.jsx       # Footer with WhatsApp contact
 │   ├── sections/            # Page sections
 │   │   ├── HeroSection.jsx
 │   │   ├── HandmadeSection.jsx
@@ -116,21 +117,24 @@ Reusable button with three variants:
 - Responsive hamburger menu for mobile
 - Smooth scroll navigation
 - Changes style on scroll
+- "Find a Location" button redirects to Google Maps
 
 ### Footer Component
-- Newsletter signup with email validation
+- WhatsApp contact form with message textarea
+- Direct messaging to +52 221 341 9629
+- Message validation before sending
 - Social media links (Instagram, Facebook, Pinterest)
 - Legal links (Privacy, Terms, Cookies)
 - Copyright information
 
 ## Sections
 
-1. **Hero Section** - Main headline with CTA buttons
-2. **Handmade Section** - Product showcase
-3. **Made In Brussels** - Brand story
-4. **Social Media** - Instagram/Facebook integration with gallery
-5. **Locations** - Three store locations
-6. **Footer** - Newsletter and contact info
+1. **Hero Section** - Main headline with "Find a Location" button (Google Maps)
+2. **Handmade Section** - Product showcase with coffee roasting story
+3. **Made In Brussels** - Brand story and café atmosphere
+4. **Social Media** - Instagram/Facebook integration with photo gallery
+5. **Locations** - Three Brussels area store locations
+6. **Footer** - WhatsApp contact form and social links
 
 ## Images
 
@@ -195,9 +199,31 @@ This project is for educational and commercial use.
 - **Icons**: React Icons
 - **Powered by**: CMDigital
 
+## Interactive Features
+
+### WhatsApp Contact Form
+The footer includes a direct WhatsApp messaging feature:
+- Users can type a message in the textarea
+- Click "Send Message" to open WhatsApp Web/App
+- Message is pre-filled with user's text
+- Opens in new tab for seamless experience
+- Contact number: +52 221 341 9629
+- Works on both desktop (WhatsApp Web) and mobile (WhatsApp App)
+
+### Location Finder
+Quick access to store locations via Google Maps:
+- "Find a Location" buttons in navbar and hero section
+- Redirects to: [Google Maps](https://maps.app.goo.gl/NoUsNSYMZTQdRCz28)
+- Opens in new tab for easy navigation
+- Shows all Brussels Brewery locations
+
 ## Contact
 
-For questions or support, visit one of our locations:
+For questions or support:
+- **WhatsApp**: Use the contact form in the footer
+- **Visit us**: Find directions via the "Find a Location" button
+
+**Locations:**
 - Brussels: Rue de Midi 45, 1000 Brussels, Belgium
 - Anderlecht: Pl. de Linde 21, 1070 Anderlecht, Belgium
 - Machelen: Diegemplein 2, 1830 Machelen, Belgium
