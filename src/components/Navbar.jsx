@@ -3,8 +3,9 @@ import { FaCoffee, FaBars, FaTimes } from 'react-icons/fa';
 
 /**
  * Sticky navigation bar with responsive mobile menu
+ * @param {function} setIsMenuOpen - Function to open menu modal
  */
-const Navbar = () => {
+const Navbar = ({ setIsMenuOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,8 +24,6 @@ const Navbar = () => {
     { name: 'Shop', href: '#shop' },
     { name: 'About', href: '#about' },
     { name: 'Blog', href: '#blog' },
-    { name: 'Locations', href: '#locations' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   // Handle smooth scroll and close mobile menu
@@ -65,6 +64,26 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              className="text-dark hover:text-brown transition-colors duration-200"
+            >
+              Menu
+            </button>
+            <a
+              href="#locations"
+              onClick={(e) => handleNavClick(e, '#locations')}
+              className="text-dark hover:text-brown transition-colors duration-200"
+            >
+              Locations
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact')}
+              className="text-dark hover:text-brown transition-colors duration-200"
+            >
+              Contact
+            </a>
             <a
               href="https://maps.app.goo.gl/NoUsNSYMZTQdRCz28"
               target="_blank"
@@ -99,6 +118,29 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
+              <button
+                onClick={() => {
+                  setIsMenuOpen(true);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-dark hover:text-brown transition-colors duration-200 text-lg text-left"
+              >
+                Menu
+              </button>
+              <a
+                href="#locations"
+                onClick={(e) => handleNavClick(e, '#locations')}
+                className="text-dark hover:text-brown transition-colors duration-200 text-lg"
+              >
+                Locations
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => handleNavClick(e, '#contact')}
+                className="text-dark hover:text-brown transition-colors duration-200 text-lg"
+              >
+                Contact
+              </a>
               <a
                 href="https://maps.app.goo.gl/NoUsNSYMZTQdRCz28"
                 target="_blank"
